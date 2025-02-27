@@ -7,14 +7,9 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.arcedios.myapp2.Model.TodoFirebase;
-import com.arcedios.myapp2.R;
 import com.arcedios.myapp2.databinding.ActivityRegistrarseBinding;
 import com.arcedios.myapp2.ModelView.Usuarios;
 public class Registrarse extends AppCompatActivity {
@@ -75,7 +70,7 @@ public class Registrarse extends AppCompatActivity {
 
 
             }
-            Intent intent = new Intent(Registrarse.this, Home.class);
+            Intent intent = new Intent(Registrarse.this,Servicios.class);
             intent.putExtra("NOMBRE", nombre); // Pass the user name
             intent.putExtra("USER_ID", cedula); // Pass the user ID
             startActivity(intent);

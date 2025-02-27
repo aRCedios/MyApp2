@@ -3,13 +3,11 @@ package com.arcedios.myapp2.View;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.arcedios.myapp2.Model.TodoFirebase;
-import com.arcedios.myapp2.R;
 import com.arcedios.myapp2.databinding.ActivityLoginBinding;
 
 public class Login extends AppCompatActivity {
@@ -41,7 +39,7 @@ public class Login extends AppCompatActivity {
                         Intent intent = new Intent(Login.this, Registrarse.class);
                         startActivity(intent);
                     } else if (nombreFirebase.equals(nombre)) {
-                        Intent intent = new Intent(Login.this, Home.class);
+                        Intent intent = new Intent(Login.this, Servicios.class);
                         intent.putExtra("USER_ID", cedula); // Pass the user ID
                         intent.putExtra("NOMBRE", nombre); // Pass the user name
                         startActivity(intent);

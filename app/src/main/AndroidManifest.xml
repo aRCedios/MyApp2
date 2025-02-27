@@ -31,7 +31,7 @@
             android:name=".View.Login"
             android:exported="false" />
         <activity
-            android:name=".View.Home"
+            android:name=".View.Servicios"
             android:exported="true"
             android:theme="@style/Theme.MyApp2" />
         <activity

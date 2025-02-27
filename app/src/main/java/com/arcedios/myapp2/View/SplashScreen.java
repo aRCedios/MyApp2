@@ -8,14 +8,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.arcedios.myapp2.Model.TodoFirebase;
 import com.arcedios.myapp2.databinding.ActivitySplashScreenBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.arcedios.myapp2.ModelView.Usuarios;
+
 public class SplashScreen extends AppCompatActivity {
 
     private ActivitySplashScreenBinding binding;

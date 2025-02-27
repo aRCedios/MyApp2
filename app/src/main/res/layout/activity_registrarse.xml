@@ -46,7 +46,7 @@
         android:id="@+id/registro"
         android:layout_width="133dp"
         android:layout_height="82dp"
-        android:text="Resgistrarse"
+        android:text="Registrarse"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

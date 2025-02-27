@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,7 +38,7 @@ import android.speech.tts.TextToSpeech;
 import java.util.Locale;
 
 
-public class Home extends AppCompatActivity {
+public class Servicios extends AppCompatActivity {
 
     private androidx.camera.view.PreviewView camara;
     private ImageCapture imageCapture;
@@ -59,7 +58,7 @@ public class Home extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_servicios);
         textToSpeech = new TextToSpeech(this, status -> {
             if (status == TextToSpeech.SUCCESS) {
                 //textToSpeech.setLanguage(Locale.US); // Idioma en inglés
@@ -160,7 +159,7 @@ public class Home extends AppCompatActivity {
 
             @Override
             public void onError(@NonNull ImageCaptureException exception) {
-                Toast.makeText(Home.this, "Error al capturar imagen", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Servicios.this, "Error al capturar imagen", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -180,9 +179,7 @@ public class Home extends AppCompatActivity {
             float[][] results = classifier.predict(input);
             classifier.close();
 
-            Log.d("Modelo", "Ojos abiertos: " + results[0][0] +
-                    " | Ojos cerrados: " + results[0][1] +
-                    " | No hay nadie: " + results[0][2]);
+
 
             OjosAbiertos.setText((String.valueOf(results[0][0] * 100) + "%"));
             OjosCerrados.setText((String.valueOf(results[0][1] * 100) + "%"));
@@ -260,8 +257,8 @@ public class Home extends AppCompatActivity {
 
             @Override
             public void run() {
-                int color = isRed ? ContextCompat.getColor(Home.this, R.color.blue) :
-                        ContextCompat.getColor(Home.this, R.color.red);
+                int color = isRed ? ContextCompat.getColor(Servicios.this, R.color.blue) :
+                        ContextCompat.getColor(Servicios.this, R.color.red);
                 findViewById(android.R.id.content).setBackgroundColor(color);
                 isRed = !isRed;
 
@@ -277,7 +274,7 @@ public class Home extends AppCompatActivity {
     private void stopColorAnimation() {
         isColorChanging = false;
         colorHandler.removeCallbacks(colorRunnable);
-        findViewById(android.R.id.content).setBackgroundColor(ContextCompat.getColor(this, R.color.white)); // Volver a azul
+        findViewById(android.R.id.content).setBackgroundColor(ContextCompat.getColor(this, R.color.white)); // Volver a blanco
     }
 
 
