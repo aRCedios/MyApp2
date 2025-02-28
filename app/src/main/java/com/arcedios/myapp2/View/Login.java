@@ -1,25 +1,18 @@
 package com.arcedios.myapp2.View;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.arcedios.myapp2.Model.TodoFirebase;
 import com.arcedios.myapp2.databinding.ActivityLoginBinding;
-
 public class Login extends AppCompatActivity {
-
     private ActivityLoginBinding binding;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         binding.login.setOnClickListener(view -> {
             String nombre = binding.nombre.getText().toString();
             String cedula = binding.cedula.getText().toString();
@@ -27,8 +20,6 @@ public class Login extends AppCompatActivity {
                 Toast.makeText(this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
                 return;
             }
-
-
             TodoFirebase.Identificar(cedula, new TodoFirebase.IdentificarCallback() {
                 @Override
                 public void onIdentificarResult(String nombreFirebase) {

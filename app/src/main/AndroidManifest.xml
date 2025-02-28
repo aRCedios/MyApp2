@@ -21,12 +21,7 @@
         <activity
             android:name=".View.Registrarse"
             android:exported="false" />
-        <activity
-            android:name=".View.ElegirLogin"
-            android:exported="false" />
-        <activity
-            android:name=".View.EliminarCuenta"
-            android:exported="false" />
+
         <activity
             android:name=".View.Login"
             android:exported="false" />

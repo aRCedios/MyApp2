@@ -1,14 +1,11 @@
 package com.arcedios.myapp2.View;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.arcedios.myapp2.Model.TodoFirebase;
 import com.arcedios.myapp2.databinding.ActivityRegistrarseBinding;
 import com.arcedios.myapp2.ModelView.Usuarios;
@@ -49,35 +46,24 @@ public class Registrarse extends AppCompatActivity {
             String nombre = binding.nombre.getText().toString();
             String cedula = binding.cedula.getText().toString();
             int edad = Integer.parseInt(binding.edad.getText().toString());
-
             usuario.setNombre(nombre);
             usuario.setCedula(cedula);
             usuario.setEdad(edad);
-
-
-
             if (TextUtils.isEmpty(nombre) || TextUtils.isEmpty(cedula)) {
                 Toast.makeText(this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
                 return;
             }
-
             boolean noC= TodoFirebase.addUser(usuario);
-
             if (noC) {
                 Toast.makeText(this, "error al agregar el usuario", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "Usuario agregado correctamente", Toast.LENGTH_SHORT).show();
-
-
             }
             Intent intent = new Intent(Registrarse.this,Servicios.class);
             intent.putExtra("NOMBRE", nombre); // Pass the user name
             intent.putExtra("USER_ID", cedula); // Pass the user ID
             startActivity(intent);
             finish();
-
-
         });
-
     }
 }

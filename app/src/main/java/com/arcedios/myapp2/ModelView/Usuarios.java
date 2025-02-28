@@ -5,17 +5,8 @@ public class Usuarios {
     private  String cedula;
     private  int edad;
     private  boolean enfermedades;
-
     public Usuarios() {
     }
-
-    public Usuarios(String nombre, String cedula, int edad,boolean enfermedades) {
-        this.nombre = nombre;
-        this.cedula = cedula;
-        this.edad = edad;
-        this.enfermedades = enfermedades;
-    }
-
     public  String getNombre() {
 
         return nombre;

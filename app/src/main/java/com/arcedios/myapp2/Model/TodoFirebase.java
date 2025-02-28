@@ -4,8 +4,6 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,17 +24,6 @@ public class TodoFirebase {
         // Initialize the database reference in the constructor
         databaseReference = FirebaseDatabase.getInstance().getReference();
     }
-
-    public boolean isAver() {
-
-        return aver;
-    }
-
-    public boolean setAver(boolean aver) {
-        this.aver = aver;
-        return aver;
-    }
-
     public static boolean addUser(Usuarios p) {
         AtomicBoolean success = new AtomicBoolean(false);
         TodoFirebase firebase = new TodoFirebase();
@@ -55,18 +42,6 @@ public class TodoFirebase {
 
         });
         return success.get();
-    }
-
-    public static void removeItem(String cedula) {
-        TodoFirebase firebase = new TodoFirebase();
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference();
-        myRef.child("Usuarios").child(cedula).setValue(null).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                firebase.setAver(true);
-            }
-        });
     }
 
     public interface IdentificarCallback {
